@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Timepress Demo</title>
+    <style>
+      :root {
+        --paper: #ffffff;
+        --ink: #111111;
+        --orange: #f57c00;
+        --red: #e53935;
+        --blue: #1e88e5;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #f4f4f2;
+        display: grid;
+        place-items: center;
+        font-family: "PingFang SC", "Hiragino Sans GB", "STKaiti", sans-serif;
+        letter-spacing: 0;
+      }
+
+      [data-composition-id="timepress-demo"] {
+        position: relative;
+        width: min(100vw, calc(100vh * 16 / 9));
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .line {
+        fill: none;
+        stroke: var(--ink);
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .thin {
+        stroke-width: 3;
+      }
+
+      .orange {
+        stroke: var(--orange);
+      }
+
+      .red {
+        fill: var(--red);
+        stroke: var(--red);
+      }
+
+      .blue {
+        fill: var(--blue);
+        stroke: var(--blue);
+      }
+
+      .ink-fill {
+        fill: var(--ink);
+      }
+
+      .paper-fill {
+        fill: var(--paper);
+      }
+
+      text {
+        font-family: "PingFang SC", "Hiragino Sans GB", "STKaiti", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0;
+        fill: var(--ink);
+      }
+
+      .label {
+        font-size: 42px;
+      }
+
+      .small-label {
+        font-size: 32px;
+      }
+
+      .red-text {
+        fill: var(--red);
+      }
+
+      .blue-text {
+        fill: var(--blue);
+      }
+
+      .orange-text {
+        fill: var(--orange);
+      }
+
+      #crank,
+      #xiaohei-arm,
+      #machine-body,
+      #film-strip,
+      #paper-card {
+        transform-box: fill-box;
+      }
+
+      #crank {
+        transform-origin: 50% 50%;
+      }
+
+      #xiaohei-arm {
+        transform-origin: 92% 80%;
+      }
+
+      #machine-body {
+        transform-origin: 50% 65%;
+      }
+
+      #paper-card,
+      #film-strip {
+        transform-origin: 50% 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="timepress-demo"
+      data-start="0"
+      data-duration="8"
+      data-track-index="0"
+      data-width="1920"
+      data-height="1080"
+    >
+      <svg viewBox="0 0 1920 1080" role="img" aria-label="小黑把静态配图压成动态视频时间线">
+        <defs>
+          <marker id="arrow" markerWidth="15" markerHeight="12" refX="13" refY="6" orient="auto">
+            <path d="M1,1 L14,6 L1,11" fill="none" stroke="var(--orange)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </marker>
+        </defs>
+
+        <g id="paper-card">
+          <path class="line draw paper-fill" d="M225 465 C255 432 360 432 438 455 C486 469 495 565 453 597 C393 641 270 626 225 590 C192 564 190 500 225 465 Z" />
+          <path class="line draw thin" d="M268 505 C300 490 355 492 411 512" />
+          <path class="line draw thin" d="M266 548 C315 536 365 539 424 554" />
+          <text id="label-static" class="label" x="276" y="438">静态配图</text>
+        </g>
+
+        <path id="in-arrow" class="line orange draw" marker-end="url(#arrow)" d="M535 548 C610 546 640 548 703 548" />
+
+        <g id="xiaohei">
+          <ellipse id="xiaohei-body" class="ink-fill" cx="650" cy="720" rx="72" ry="98" />
+          <circle class="paper-fill" cx="626" cy="690" r="9" />
+          <circle class="paper-fill" cx="668" cy="690" r="9" />
+          <path class="line draw thin" d="M615 813 C613 857 600 887 578 918" />
+          <path class="line draw thin" d="M684 813 C692 858 714 884 743 908" />
+          <path id="xiaohei-arm" class="line draw thin" d="M706 700 C760 673 779 634 803 584" />
+          <path class="line draw thin" d="M605 708 C560 686 540 650 525 618" />
+          <path class="line draw thin" d="M552 917 C610 936 692 935 762 914" />
+        </g>
+
+        <g id="machine-body">
+          <path class="line draw paper-fill" d="M755 390 C781 358 1030 356 1061 394 C1091 430 1088 740 1053 774 C1021 807 777 806 750 772 C724 738 721 430 755 390 Z" />
+          <path class="line draw thin" d="M800 444 C850 431 982 431 1033 446" />
+          <path class="line draw thin" d="M801 705 C858 722 980 722 1030 704" />
+          <rect class="paper-fill" x="810" y="482" width="192" height="134" rx="18" />
+          <path class="line draw thin" d="M810 482 C860 468 955 469 1002 482 L1002 616 C952 632 858 631 810 616 Z" />
+          <path id="teeth" class="line draw thin" d="M834 569 L862 545 L890 570 L918 546 L946 570 L974 546" />
+          <path class="line draw thin" d="M909 348 C907 313 906 283 908 250" />
+          <path class="line draw thin" d="M843 245 C882 225 966 225 1005 246 C1020 254 1014 285 999 293 C954 314 871 313 830 293 C815 285 824 254 843 245 Z" />
+          <text id="label-line" class="small-label" x="824" y="520">线条</text>
+          <text id="label-motion" class="small-label orange-text" x="858" y="563">动作</text>
+          <text id="label-rhythm" class="small-label" x="897" y="606">节奏</text>
+          <text id="press-label" class="small-label" x="830" y="750">压一压</text>
+        </g>
+
+        <g id="crank">
+          <circle class="paper-fill" cx="770" cy="555" r="42" />
+          <circle class="line draw thin" cx="770" cy="555" r="42" />
+          <path class="line draw orange" d="M770 555 C724 600 692 625 650 647" />
+          <circle class="paper-fill" cx="650" cy="647" r="17" />
+          <circle class="line draw thin" cx="650" cy="647" r="17" />
+        </g>
+
+        <path id="out-arrow" class="line orange draw" marker-end="url(#arrow)" d="M1090 548 C1180 548 1218 546 1290 546" />
+
+        <g id="film-strip">
+          <path class="line draw paper-fill" d="M1306 457 C1368 430 1573 427 1647 455 C1683 470 1681 623 1648 638 C1582 670 1368 670 1308 638 C1278 622 1275 470 1306 457 Z" />
+          <path class="line draw thin" d="M1342 481 L1613 481" />
+          <path class="line draw thin" d="M1342 614 L1613 614" />
+          <path class="line draw thin" d="M1408 486 L1408 612" />
+          <path class="line draw thin" d="M1496 486 L1496 612" />
+          <path class="line draw thin" d="M1584 486 L1584 612" />
+          <path class="line draw thin" d="M1360 525 C1378 506 1396 507 1408 527 C1389 540 1376 548 1361 567" />
+          <path class="line draw thin" d="M1440 567 C1468 548 1465 522 1442 510" />
+          <path class="line draw thin" d="M1530 525 C1552 506 1572 515 1580 542 C1558 548 1543 554 1530 576" />
+          <text id="label-render" class="label blue-text" x="1415" y="420">可渲染</text>
+        </g>
+
+        <g id="warning">
+          <text class="label red-text" x="1094" y="385">别变PPT</text>
+          <path class="line draw red" d="M1165 397 C1139 425 1118 454 1105 493" />
+        </g>
+
+        <g id="final-note">
+          <path class="line draw thin" d="M1200 780 C1315 826 1494 826 1642 776" />
+          <text class="small-label" x="1248" y="750">同一个隐喻，多了时间线</text>
+        </g>
+      </svg>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      document.querySelectorAll(".draw").forEach((el) => {
+        if (typeof el.getTotalLength === "function") {
+          const length = el.getTotalLength();
+          el.style.strokeDasharray = length;
+          el.style.strokeDashoffset = length;
+        }
+      });
+
+      gsap.set(["#label-static", "#label-line", "#label-motion", "#label-rhythm", "#press-label", "#warning", "#label-render", "#final-note"], {
+        opacity: 0,
+      });
+      gsap.set("#paper-card", { x: -80, y: 8, rotation: -2, opacity: 0 });
+      gsap.set("#xiaohei", { y: 28, opacity: 0 });
+      gsap.set("#machine-body", { y: 12, opacity: 0 });
+      gsap.set("#crank", { opacity: 0 });
+      gsap.set(["#in-arrow", "#out-arrow"], { opacity: 0 });
+      gsap.set("#film-strip", { x: -120, opacity: 0 });
+
+      const tl = gsap.timeline({ paused: true });
+
+      tl.to(".draw", {
+        strokeDashoffset: 0,
+        duration: 1.05,
+        ease: "sine.inOut",
+        stagger: 0.025,
+      }, 0.18)
+        .to("#paper-card", { x: 0, y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.22)
+        .to("#machine-body", { y: 0, opacity: 1, duration: 0.72, ease: "expo.out" }, 0.45)
+        .to("#xiaohei", { y: 0, opacity: 1, duration: 0.58, ease: "back.out(1.25)" }, 0.72)
+        .to("#crank", { opacity: 1, duration: 0.28, ease: "power1.out" }, 1.05)
+        .to("#label-static", { opacity: 1, y: -14, duration: 0.42, ease: "power2.out" }, 1.12)
+        .to("#in-arrow", { opacity: 1, duration: 0.25, ease: "power1.out" }, 1.32)
+        .to("#label-static", { opacity: 0, y: -24, duration: 0.28, ease: "power1.in" }, 1.48)
+        .to("#paper-card", { x: 310, scale: 0.82, rotation: 4, duration: 1.15, ease: "power2.inOut" }, 1.55)
+        .to("#machine-body", { rotation: 1.8, duration: 0.14, repeat: 11, yoyo: true, ease: "sine.inOut" }, 2.15)
+        .to("#crank", { rotation: 360, duration: 0.42, repeat: 5, ease: "sine.inOut" }, 2.12)
+        .to("#xiaohei-arm", { rotation: -20, duration: 0.21, repeat: 7, yoyo: true, ease: "sine.inOut" }, 2.12)
+        .to("#label-line", { opacity: 1, x: -10, duration: 0.3, ease: "power3.out" }, 2.55)
+        .to("#label-motion", { opacity: 1, scale: 1.08, duration: 0.34, ease: "back.out(2)" }, 2.85)
+        .to("#label-rhythm", { opacity: 1, x: 12, duration: 0.38, ease: "circ.out" }, 3.18)
+        .to("#press-label", { opacity: 1, y: -8, duration: 0.32, ease: "power1.out" }, 3.42)
+        .to("#warning", { opacity: 1, scale: 1.04, duration: 0.44, ease: "back.out(1.8)" }, 3.55)
+        .to("#paper-card", { opacity: 0, scale: 0.55, x: 545, duration: 0.45, ease: "power2.in" }, 4.0)
+        .to("#out-arrow", { opacity: 1, duration: 0.25, ease: "power1.out" }, 4.2)
+        .to("#film-strip", { x: 0, opacity: 1, duration: 0.82, ease: "expo.out" }, 4.42)
+        .to("#label-render", { opacity: 1, y: -16, duration: 0.45, ease: "power2.out" }, 4.82)
+        .to("#film-strip", { x: 14, duration: 0.28, repeat: 3, yoyo: true, ease: "sine.inOut" }, 5.15)
+        .to("#final-note", { opacity: 1, y: -10, duration: 0.55, ease: "circ.out" }, 5.75)
+        .to("#xiaohei-body", { scaleY: 0.96, duration: 0.18, repeat: 3, yoyo: true, transformOrigin: "50% 60%", ease: "sine.inOut" }, 6.15)
+        .to("#root", { opacity: 1, duration: 1.25, ease: "none" }, 6.65);
+
+      window.__timelines["timepress-demo"] = tl;
+
+      const previewMode = !new URLSearchParams(window.location.search).has("capture");
+      if (previewMode) {
+        tl.play(0);
+        document.body.addEventListener("click", () => tl.restart());
+      }
+    </script>
+  </body>
+</html>

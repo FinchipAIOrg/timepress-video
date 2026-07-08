@@ -1,0 +1,4 @@
+interface:
+  display_name: "时间压机视频"
+  short_description: "把文章观点脚本压成可播放的时间线动态视频工程生成器"
+  default_prompt: "Use $timepress-video to 把这个中文观点做成一段可播放的时间线动态视频。"
