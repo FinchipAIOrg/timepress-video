@@ -13,7 +13,7 @@ This skill is not tied to one character. Choose a visual preset per task. `xiaoh
 
 Load only what the task needs:
 
-- `references/style-dna.md`: visual presets, color/typography guardrails, attribution, and style drift rules.
+- `references/style-dna.md`: visual presets, color/typography guardrails, and style drift rules.
 - `references/motion-patterns.md`: motion shot-list schema, scene archetypes, timing, main-mover actions, and animation operators.
 - `references/html-motion-workflow.md`: HTML/SVG/GSAP output contract, preview path, and file layout.
 - `references/qa-checklist.md`: pre-delivery checks for style, motion, readability, and renderability.
@@ -32,7 +32,7 @@ Load only what the task needs:
    - Default to `editorial-sketch` for articles, ideas, and conceptual explainers.
    - Use `clean-product` for product or SaaS workflows.
    - Use `data-flow` for systems, processes, metrics, and automation.
-   - Use `xiaohei-sketch` only when the user asks for Xiaohei, 小黑, a deadpan black character, or Ian-style hand-drawn article illustration.
+   - Use `xiaohei-sketch` only when the user asks for Xiaohei, 小黑, or a deadpan black hand-drawn character.
 
 3. **Write a motion shot list first**
    - For planning requests, stop at the shot list.
@@ -76,13 +76,3 @@ For a finished production task, deliver:
 - Do not make a PPT-like flowchart, dense course slide, commercial vector animation, generic tech UI, or cute mascot short.
 - Do not copy bundled examples or upstream examples as a layout swap. Reuse style rules, not exact compositions.
 - Do not promise file export from this skill. Treat export as a separate downstream task.
-- Do not remove Ian attribution when redistributing outputs or assets that use the `xiaohei-sketch` derivative preset.
-
-## Attribution
-
-The optional `xiaohei-sketch` preset is inspired by and adapts visual language and workflow ideas from Ian's MIT-licensed Xiaohei skills:
-
-- `ian-xiaohei-illustrations`
-- `ian-xiaohei-scenes`
-
-The broader Timepress workflow is a general motion-video process and does not require Xiaohei.
